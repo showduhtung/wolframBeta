@@ -1,0 +1,14 @@
+{
+  "type": "service_account",
+  "project_id": "wolfram-beta",
+  "private_key_id": "4cce58ef45d1712fb9f76a403dfdeb1afaf154c5",
+  "private_key":
+    "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCcc6ifYAUG1qjN\nG1ecbZ2WMPMkur/SzYD3xzKTSAw4sy2mt0YZd4JR9NP0r4g9JAETEROF8wqG0SJz\nFT99ZrLgrCKnYTKACisztd2fgGlAc4ZgQ/l6IFfWQlfhJSZo/uHQyKWSpH7qnvAj\nU7eq/8WAbk8lcD485XmALdB3amd17FrpnLhtSxqn0tP6GaiaTPwXxGOIpHcd5M6j\nbs363aLQFexEDVvOmY7OHh43VXQQDaHgXpsIfT0tjJFCPHbTV+gyruyKv+zyooab\n8SEzOfSsAV3VtQfbevvDCzwB+LoV87ry5w+YHoSPoTH/tBvjiTq7OpkZBsLUbINz\n+JIGQC79AgMBAAECgf9eRFIVtYVR2YVcEF15o5KQLG5UczGhkrFimmOe2oqCn3Oi\nQEu8jIW5XAtaI2mzbT44ftGEpCxzjw9yyBq5NGgTd6Rpteb3vyjIv4wJzxWb//+3\ngT2QmGxUbSUGQ5whJ3Jomn0pHnRaaenHX2oLXpFiERUfOcJGbv4GfZReX353TkBh\n6qp2h+8C4D4kgxm3AH7XBtV5FcEVqyNnIjz1qVCAQWsHWuVtLbKxzUcX+KCCsDKP\ne1xxAx+Qas8Gmcx+RmEJwllt7Rl8xJBFsd+3vWyOgtjrovRyRdEviISYCsiXJFby\n7MZPbrnMSENw/hzxctXacwhjgsU7SVYrlKyjb4kCgYEA2mEh8i9MNckkzOYCBGpc\n+6txwGpt6gdfI9h4ZpWcWMkuOWiH7XFq9HS9AHZNSJUok2LholE5axagH0lB8q/I\nYYzCZaVaHMcBRbq8mf6HSHQh1mxRsnoh+mYsvchduDn7gkrbPhUzA8SIMzzQpAJ5\nR7dsPmoPkMPY4LnRNxXh8ekCgYEAt2dsLBhTtRXDmK5uXoU9Pa1tUWGQNazZG/Ht\ndO7B3yAZNRUnyS1X4ytTDiktJUlpe50jeyAIYYWjN5CSP+/9Rjt6MsVoQStvYS0e\ntdIs1gwADSBj9JGDt/4aUTQcqa2fi+cWpmKgwmGyaQWt2rwIbvyx6hiyDmUfwyl8\nq3uYc/UCgYEAsCCxGTxucd7V0HAd5mPGtLA04WS1W5Awep+nk81MuQshPeoB306f\nXaQdn5bKhCTRAfY5Vwm9jpJD+JfEGbEOoya8zvBKunUCoLOYU3dGsvf/JopcZd89\nMlBf+3zzoZcaM56eLvc4GuzSkMiW2gCowl+8bKZsAW0DqVQU2iHLBqkCgYACKoCG\njMsASn+C4ByBlUVB4zh1S5euapot0E+jn+Y+QlzJ2bQcliKBllNmyWm1FQbf5N00\naQ5wSGnDEDwJ8UWmfLFWxCoVCvRHy4afUxogdQfTH9zOWKGbnK6m4tyrzFckCdik\nommPoiO/Rcfl226mEOnw/9Wqgds8LNNCGzWTuQKBgHa3kF1RSQvyeq2q+L43ZkH2\nIvUgYCoKed7NFf70iPWh3qL2bCV99Qer7VqKypiALSz9+AE3LdXQ33kVrs0QBbnO\ndXR0vte7ILAdkQjpOa0LIiEpwxh5unanhNQVXk+PTCJyJZkGIkbVv92jsxVme4Lr\njaXxhIiEyu2CD5ZtfNUL\n-----END PRIVATE KEY-----\n",
+  "client_email": "wolframbeta@wolfram-beta.iam.gserviceaccount.com",
+  "client_id": "104638497872438265908",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url":
+    "https://www.googleapis.com/robot/v1/metadata/x509/wolframbeta%40wolfram-beta.iam.gserviceaccount.com"
+}
