@@ -106,6 +106,7 @@ class ImgDropAndDL extends Component {
 
   render() {
     const {imgSrc} = this.state
+    console.log('render!!!!!!!', this.state)
     return (
       <div>
         <h1>Wolfram Beta</h1>
