@@ -7,6 +7,9 @@ import {
   downloadBase64File,
   extractImageFileExtensionFromBase64
 } from '../utils/imageConverter'
+import axios from 'axios'
+import {SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION} from 'constants'
+import {number} from 'prop-types'
 
 const imageMaxSize = 1000000000 // bytes
 const acceptedFileTypes =
@@ -24,6 +27,7 @@ class ImgDropAndDL extends Component {
       imgSrc: null,
       imgSrcExt: null
     }
+    this.handleCalculateClick = this.handleCalculateClick.bind(this)
   }
 
   verifyFile = files => {
@@ -59,7 +63,7 @@ class ImgDropAndDL extends Component {
         myFileItemReader.addEventListener(
           'load',
           () => {
-            console.log(myFileItemReader.result)
+            // console.log('setting state,', myFileItemReader.result)
             const myResult = myFileItemReader.result
             this.setState({
               imgSrc: myResult,
@@ -74,23 +78,22 @@ class ImgDropAndDL extends Component {
     }
   }
 
-  handleDownloadClick = event => {
+  async handleCalculateClick(event) {
     event.preventDefault()
     const {imgSrc} = this.state
+    const {imgSrcExt} = this.state
+
     if (imgSrc) {
-      const canvasRef = this.imagePreviewCanvasRef.current
-      console.log(canvasRef)
+      const numberToSliceOff = 19 + imgSrcExt.length
+      console.log('what the?', numberToSliceOff)
+      console.log(imgSrc.slice(23))
+      console.log("i'm trying to axiospost")
+      // console.log(numberToSliceOff)
+      // console.log(imgSrc.slice(24))
+      await axios.post('/api/image', {
+        data: imgSrc.slice(23)
+      })
 
-      const {imgSrcExt} = this.state
-      const imageData64 = canvasRef.toDataURL('image/' + imgSrcExt)
-
-      const myFilename = 'previewFile.' + imgSrcExt
-
-      // file to be uploaded
-      const myNewCroppedFile = base64StringtoFile(imageData64, myFilename)
-      console.log(myNewCroppedFile)
-      // download file
-      downloadBase64File(imageData64, myFilename)
       this.handleClearToDefault()
     }
   }
@@ -103,16 +106,15 @@ class ImgDropAndDL extends Component {
       imgSrcExt: null
     })
   }
-
   render() {
     const {imgSrc} = this.state
-    console.log('render!!!!!!!', this.state)
+    // console.log('render!!!!!!!', this.state)
     return (
       <div>
         <h1>Wolfram Beta</h1>
         <hr />
         <canvas ref={this.imagePreviewCanvasRef} />
-        <button onClick={this.handleDownloadClick}>Calculate!</button>
+        <button onClick={this.handleCalculateClick}>Calculate!</button>
         <button onClick={this.handleClearToDefault}>Clear</button>
         <div>
           {imgSrc !== null ? (
