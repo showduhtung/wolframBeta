@@ -14,6 +14,9 @@ const Image = require('./image')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
+
+Image.belongsTo(User)
+User.hasMany(Image)
 module.exports = {
   User,
   Image
