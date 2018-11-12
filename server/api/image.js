@@ -12,11 +12,6 @@ const client = new vision.ImageAnnotatorClient({
   keyFilename: 'Wolfram-Beta.json'
 })
 
-// console.log('client', client)
-const rawData = fs.readFileSync('./moreMath.jpg')
-
-// console.log('fs.readFileSync', rawData)
-
 router.post('/', (req, res, next) => {
   try {
     const request = {
@@ -32,16 +27,16 @@ router.post('/', (req, res, next) => {
       .then(results => {
         const fullTextAnnotation = results[0].fullTextAnnotation
         console.log(`Full text: ${fullTextAnnotation.text}`)
+        const mathAnswer = textRecognition(fullTextAnnotation.text)
+        res.send(mathAnswer)
         Image.create({
-          data: fullTextAnnotation.text
+          data: fullTextAnnotation.text,
+          answer: mathAnswer.toString()
         })
-        res.send(fullTextAnnotation.text)
-        textRecognition(fullTextAnnotation.text)
       })
       .catch(err => {
         console.error('ERROR:', err)
       })
-
     res.status(201)
   } catch (err) {
     console.error(err)

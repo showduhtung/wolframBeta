@@ -21,13 +21,13 @@ const acceptedFileTypesArray = acceptedFileTypes.split(',').map(item => {
 class ImgDropAndDL extends Component {
   constructor(props) {
     super(props)
-    this.imagePreviewCanvasRef = React.createRef()
-    this.fileInputRef = React.createRef()
     this.state = {
       imgSrc: null,
-      imgSrcExt: null
+      imgSrcExt: null,
+      total: 'Drop An Image'
     }
     this.handleCalculateClick = this.handleCalculateClick.bind(this)
+    this.handleClearToDefault = this.handleClearToDefault.bind(this)
   }
 
   verifyFile = files => {
@@ -67,7 +67,8 @@ class ImgDropAndDL extends Component {
             const myResult = myFileItemReader.result
             this.setState({
               imgSrc: myResult,
-              imgSrcExt: extractImageFileExtensionFromBase64(myResult)
+              imgSrcExt: extractImageFileExtensionFromBase64(myResult),
+              total: 'Drop An Image'
             })
           },
           false
@@ -84,36 +85,37 @@ class ImgDropAndDL extends Component {
     const {imgSrcExt} = this.state
 
     if (imgSrc) {
-      const numberToSliceOff = 19 + imgSrcExt.length
-      console.log('what the?', numberToSliceOff)
-      console.log(imgSrc.slice(23))
-      console.log("i'm trying to axiospost")
-      // console.log(numberToSliceOff)
-      // console.log(imgSrc.slice(24))
-      await axios.post('/api/image', {
+      // const numberToSliceOff = 19 + imgSrcExt.length
+
+      const {data} = await axios.post('/api/image', {
         data: imgSrc.slice(23)
       })
-
-      this.handleClearToDefault()
+      console.log('did i get here???', data.entries[0])
+      this.setState({
+        imgSrc: imgSrc,
+        imgSrcExt: imgSrcExt,
+        total: data.entries[0]
+      })
     }
   }
 
-  handleClearToDefault = event => {
+  handleClearToDefault(event) {
     if (event) event.preventDefault()
-
     this.setState({
       imgSrc: null,
-      imgSrcExt: null
+      imgSrcExt: null,
+      total: 'Drop An Image'
     })
   }
+
   render() {
     const {imgSrc} = this.state
-    // console.log('render!!!!!!!', this.state)
+
     return (
       <div>
         <h1>Wolfram Beta</h1>
         <hr />
-        <canvas ref={this.imagePreviewCanvasRef} />
+
         <button onClick={this.handleCalculateClick}>Calculate!</button>
         <button onClick={this.handleClearToDefault}>Clear</button>
         <div>
@@ -129,6 +131,7 @@ class ImgDropAndDL extends Component {
               Drop image here
             </Dropzone>
           )}
+          <div>The Answer is : {this.state.total}</div>
         </div>
       </div>
     )
