@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  /* background-color:  */
 }
 
 a {
@@ -18,4 +19,62 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  transform: translate(-10%);
+}
+.wolf {
+  color: #ff7d00;
+  font-size: 12vh;
+}
+
+.beta {
+  color: #dd1000;
+  font-size: 12vh;
+}
+
+.intelligent {
+  color: #dd1000;
+  transform: translate(100%, -285%);
+  font-size: 4vh;
+}
+.computing {
+  color: #dd1000;
+  transform: translate(100%, -295%);
+  font-size: 4vh;
+}
+
+.imageDrop {
+  /* background-color: blue; */
+  /* transform: translate(50%); */
+  height: 10vh;
+}
+
+.dropZone {
+  padding-left: 40vw;
+  height: 10vh;
+}
+.dropZone p {
+  padding-left: 0.5em;
+  padding-top: 1em;
+}
+
+.buttons {
+  /* background-color: red; */
+  padding-left: 81vw;
+  transform: translate(-11%, -405%);
+}
+
+.answer {
+  /* background-color: red; */
+  padding-left: 81vw;
+  transform: translate(-13%, -415%);
+}
+
+.imaging {
+  height: 40vh;
+  width: 60vw;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Dropzone from 'react-dropzone'
+import Button from '@material-ui/core/Button'
 // import ReactCrop from 'react-image-crop'
 // import './custom-image-crop.css'
 import {
@@ -24,7 +25,7 @@ class ImgDropAndDL extends Component {
     this.state = {
       imgSrc: null,
       imgSrcExt: null,
-      total: 'Drop An Image'
+      total: '_____'
     }
     this.handleCalculateClick = this.handleCalculateClick.bind(this)
     this.handleClearToDefault = this.handleClearToDefault.bind(this)
@@ -113,25 +114,64 @@ class ImgDropAndDL extends Component {
 
     return (
       <div>
-        <h1>Wolfram Beta</h1>
-        <hr />
+        <div className="heading">
+          <div>
+            <h1>
+              <span className="wolf">Wolfram</span>
+              <span className="beta">Beta </span>
+            </h1>
+            <div className="intelligent">
+              <span>intelligent</span>
+            </div>
+            <div className="computing">
+              <span>computing</span>
+            </div>
+          </div>
+        </div>
 
-        <button onClick={this.handleCalculateClick}>Calculate!</button>
-        <button onClick={this.handleClearToDefault}>Clear</button>
-        <div>
+        <div className="imageDrop">
           {imgSrc !== null ? (
-            <img src={imgSrc} />
+            <img src={imgSrc} className="imaging" />
           ) : (
-            <Dropzone
-              onDrop={this.handleOnDrop}
-              accept={acceptedFileTypes}
-              multiple={false}
-              maxSize={imageMaxSize}
-            >
-              Drop image here
-            </Dropzone>
+            <div className="dropZone">
+              <Dropzone
+                onDrop={this.handleOnDrop}
+                accept={acceptedFileTypes}
+                multiple={false}
+                maxSize={imageMaxSize}
+                style={{
+                  width: '50vw',
+                  height: '7vh',
+                  border: '1px solid black',
+                  borderRadius: '10px',
+                  transform: 'translate(-40%, -150%)'
+                  // backgroundColor: 'black'
+                }}
+              >
+                <p> Drop an image you want calculated</p>
+              </Dropzone>
+            </div>
           )}
-          <div>The Answer is : {this.state.total}</div>
+          <div className="buttons">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.handleCalculateClick}
+
+              // className={classes.button}
+            >
+              Calculate:
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={this.handleClearToDefault}
+              // className={classes.button}
+            >
+              Clear
+            </Button>
+          </div>
+          <div className="answer">The Answer is : {this.state.total}</div>
         </div>
       </div>
     )
